@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sCTF ADMIN</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="chall-choise">
+        <form method="get">
+            <input list="chall_to_edit" name="chall_to_edit">
+            <datalist id="chall_to_edit">
+                {% for chall in challs %}
+                <option value="{{chall.name}}">
+                {% endfor %}
+            </datalist>
+            <input type="submit"><br><br><br>
+        </form>
+    </div>
+
+<div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label for="cid">Chall id. IKKE ENDRE DENNE!</label><br>
+        <input type="number" id="cid" name="cid" value="{{editing.id}}" min="{{editing.id}}" max="{{editing.id}}"><br><br>
+
+        <label for="cname">Challange name:</label><br>
+        <input type="text" id="cname" name="cname" value="{{editing.name}}"><br>
+
+        <label for="ctext">Challange text:</label><br>
+        <textarea name="ctext" id="ctext" style="width: 300px; height: 200px;">{{editing.task}}</textarea><br><br>
+
+        <label for="ccat">Challange category:</label><br>
+        <input type="text" id="ccat" name="ccat" value="{{editing.category}}"><br><br>
+
+        <label for="ctime_created">Time created:</label><br>
+        <input type="text" id="ctime_created" name="ctime_created" value="{{editing.time_created}}"><br>
+
+        <label for="cflag">Flag:</label><br>
+        <input type="text" id="cflag" name="cflag" value="{{editing.flags}}"><br><br>
+
+        <label for="ccasesens">Case sensitive flag</label>
+        <input type="checkbox" id="ccasesens" name="ccasesens" {% if editing.casesens %}checked{% endif %}><br><br>
+
+        <label for="cstatic">Static value</label>
+        <input type="checkbox" id="cstatic" name="cstatic" {% if editing.static_value %}checked{% endif %}><br><br>
+
+        <label for="cstatic-value">Static value:   (This only applies if static value is checked)</label><br>
+        <input type="number" id="cstatic-value" name="cstatic-value" value="{{editing.points}}" min="0" max="1000"><br><br>
+
+        <label for="cactive">Activate chall</label>
+        <input type="checkbox" id="cactive" name="cactive" {% if editing.active %}checked{% endif %}><br><br>
+
+        <input type="file" name="cfile"><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+</html>

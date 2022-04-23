@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>sCTF Mission interface</title>
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
+</head>
+
+<body>
+    <nav>
+        <ul>
+          <a href="/"><li><small>application</small><br>{{settings.ctf_name}}</li></a>
+          <a href="#"><li><small>#26 - 2630p</small><br>Scoreboard</li></a>
+          <a href="/challs/"><li><br>Missions</li></a>
+          <a href="#"><li><br>Resources</li></a>
+          <a href="#"><li><small>user</small><br>{{user}}</li></a>
+          <!--<a href="#"><li><br>Main menu</li></a>-->
+        </ul>
+        <hr>
+    </nav>
+    <section>
+        <div class="info-box">
+          <ol class="info-list">
+            {% if tutorial %}
+            <li>Mission title</li>
+            Tutorial
+            <br><br><li>Mission details</li>
+            TYPE: Tutorial<br>SOLVES: N/A
+            <br><br><li>TASK</li>
+            <p>Alle tilgjengelige oppgaver vil vises i tabellen til høyre for dette viduet.<br>Om du trykker på en av oppgavene vil oppgaven vises her. Når du har fått til en oppgave kan du levere falgget i boksen i bunn av siden.</p>
+            <br><br><li>Attatchments</li>
+            {% else %}
+            <li>Mission title</li>
+            {% for chall in challs_test %}
+            {{ chall.name }}
+            {% endfor %}
+            <br><br><li>Mission details</li>
+            TYPE: {% for chall in challs_test %}{% if chall.category %}{{ chall.category }}{% else %}tutorial{% endif %}{% endfor %}<br>SOLVES: {% for chall in challs_test %}{{ chall.solves }}{% endfor %}
+            <br><br><li>TASK</li>
+            <p>{% for chall in challs_test %}{{ chall.task }}{% endfor %}</p>
+            <br><br><li>Attatchments</li>
+            {% endif %}
+          </ol>
+        </div>
+
+        <div>
+          <div class="scroll">
+            <table>
+              <tr>
+                <th> #</th>
+                <th> Name</th>
+                <th> Type</th>
+                <th> Points</th>
+                <th> Solves</th>
+                <th> Status</th>
+                <th> Time created</th>
+              </tr>
+              {% for chall in challs %}
+              <tr>
+                <td>{{chall.id}}</td>
+                <td><a href="/challs/{{chall.id}}/">{{chall.name}}</a></td>
+                <td>{{chall.category}}</td>
+                <td> {{chall.points}}p </td>
+                <td>{{chall.solves}}</td>
+                <td class="status-unsolved">Unsolved</td>
+                <td>{{chall.time_created}}</td>
+              </tr>
+              {% endfor %}
+            </table>
+
+          </div>
+          <div class="buttons">
+            <button>All</button>
+            <button>Crypto</button>
+            <button>Forensics</button>
+            <button>pwn</button>
+            <button>Steg</button>
+            <button>Prog</button>
+            <button>Intro</button>
+            <button>Web</button>
+            <button>OSINT</button>
+            <button>Reverse</button>
+            <button>Meta</button>
+          </div>
+        </div>
+         
+      </section>
+      
+      <div class="flagg-wrapper">
+        <form action="#">
+          <input type="text" id="flagg" name="flagg" placeholder="  sCTF{fl4gg_53tt35_1nn_h3r}">
+        </form>
+      </div>  
+      <a class="sCTF" href="https://github.com/sonjoh/sctf" target="_blank" rel="noopener noreferrer">Powered by sCTF</a>
+      
+
+</body>
+</html>

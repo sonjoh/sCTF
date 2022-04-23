@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <title>sCTF Admin</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="ctf_name">CTF Name:</label><br>
+        <input type="text" id="ctf_name" name="ctf_name" value="{{settings.ctf_name}}"><br><br>
+
+        <label for="ctf_active">Is CTF Active:</label><br>
+        <input type="checkbox" id="ctf_active" name="ctf_active" {% if settings.ctf_active %}checked{% endif %}><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

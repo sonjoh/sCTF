@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500;700&display=swap');
+body {
+   height: 100vh;
+   background-color: #131212;
+   background-image: radial-gradient(
+    ellipse at 50% 10%,
+    #031720 0%,
+    transparent 75%
+  );
+  background-repeat: no-repeat;
+  font-family: 'Rajdhani', sans-serif;
+  color: white;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+section {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  height: 700px;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+table, td, th {
+  border-bottom: 0.5px solid #1874CD;
+  padding: 8px;
+  text-transform: uppercase;
+}
+table th {
+  border-left: 0.5px solid #1874CD;
+  position: sticky;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: white;
+}
+ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding-right: 4%;
+}
+li {
+  font-weight: 900;
+  text-transform: uppercase;
+  
+}
+small {
+  color: #00F5FF;
+  text-shadow: 0 0 1px #2196f3, 0 0 10px #2196f3,
+    0 0 80px #2196f3;
+}
+hr {
+  border: solid;
+  border-width: 0.5px;
+  background: #072d40;
+  box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3,
+    0 0 80px #2196f3;
+}
+button {
+    cursor: pointer;
+    margin-top: 10px;
+    height: 2rem;
+    width: 5rem;
+    position: relative;
+    text-transform: uppercase;
+    border:solid;
+    border-color: #07547d;
+    background: #072d40;
+    color: #2196f3;
+    font-family: 'Rajdhani', sans-serif;
+    text-shadow:  0 0 10px #2196f3, 0 0 40px #2196f3,
+    0 0 80px #2196f3;
+    animation: move;
+    animation-duration: 0.5s;
+}
+select {
+   cursor: pointer;
+    margin-top: 10px;
+    height: 2rem;
+    width: 10rem;
+    position: relative;
+    text-transform: uppercase;
+    border:solid;
+    border-color: #07547d;
+    background: transparent;
+    color: #2196f3;
+    font-family: 'Rajdhani', sans-serif;
+}
+option {
+  background: transparent;
+}
+
+/* CLASS */
+.scroll {
+    margin-right: 5%;
+    margin-left: 2%;
+    overflow-y: auto; 
+    height: 623px; 
+    scrollbar-color: #2196f3 transparent; 
+    scrollbar-width: auto;
+}
+
+.scroll thead tr th {
+    position: sticky;
+    top: 0;
+}
+
+.buttons {
+    width: 97%;
+    padding-left: 2.5%;
+}
+
+.info-box {
+    margin-left: 5%;
+    height: 680px;
+    width: 750px;
+    border: 2px solid #2196f3;
+    padding: 10px;
+    overflow-y: scroll;
+    scrollbar-color: #2196f3 transparent; 
+    scrollbar-width: auto;
+    min-width: 280px;
+}
+.status-unsolved {
+  color: #EE3B3B;
+}
+.status-solved {
+  color:#00FF00;
+}
+.info-list  {
+  margin-bottom: 12rem;
+  margin-right: 5%;
+
+}
+.send-button {
+   cursor: pointer;
+    margin-top: 10px;
+    height: 2rem;
+    width: 5rem;
+    position: relative;
+    text-transform: uppercase;
+    border:solid;
+    border-color: #07547d;
+    background: #072d40;
+    color: #2196f3;
+    font-family: 'Rajdhani', sans-serif;
+    text-shadow:  0 0 10px #2196f3, 0 0 40px #2196f3,
+    0 0 80px #2196f3;
+    animation: move;
+    animation-duration: 0.5s;
+}
+
+.wrapper {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2%;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+}
+.info {
+    padding-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    text-align: center;
+}
+.info h1 {
+  padding-top: 15%;
+  font-size: 150px;
+}
+.info button {
+  cursor: pointer;
+  margin-right: 1%;
+  margin-top: 10px;
+  height: 7rem;
+  width: 20rem;
+  position: relative;
+  text-transform: uppercase;
+  border:solid;
+  border-color: #07547d;
+  background: #072d40;
+  color: #2196f3;
+  font-family: 'Rajdhani', sans-serif;
+  text-shadow:  0 0 10px #2196f3, 0 0 40px #2196f3,
+  0 0 80px #2196f3;
+  animation: move;
+  animation-duration: 0.5s;
+}
+
+.flagg-wrapper {
+    padding-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flagg-wrapper input {
+    /*margin-left: 30%;*/
+    width: 700px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border: 2px solid #2196f3;
+    font-size: 16px;
+    color: #FFFFFF;
+    background-color: transparent;
+    background-image: url('images/flag-24.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 15px 55px 15px 55px;
+}
+
+.sCTF {
+    margin-left: 2%;
+    font-size: 10px;
+    opacity: 20%;
+}
+
+
+
+
+
+
+/*Glitch Effect*/
+
+
+.stack {
+  padding-top: 20%;
+  padding-bottom: 15%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.stack span {
+  font-weight: bold;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  font-size: 8rem;
+  --stack-height: calc(100% / var(--stacks) - 1px);
+  --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+  --clip-top: calc(var(--stack-height) * var(--index));
+  --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+  clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+  animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse;
+}
+
+.stack span:nth-child(odd) { --glitch-translate: 8px; }
+.stack span:nth-child(even) { --glitch-translate: -8px; }
+
+@keyframes stack {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+    text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+  };
+  60% {
+    opacity: 0.5;
+    transform: translateX(50%);
+  }
+  80% {
+    transform: none;
+    opacity: 1;
+    text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+    transform: translate(var(--glitch-translate));
+  }
+  2% {
+    text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+  }
+  4%, 100% {  text-shadow: none; transform: none; }
+}
